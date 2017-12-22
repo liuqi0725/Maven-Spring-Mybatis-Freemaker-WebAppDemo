@@ -1,5 +1,6 @@
 # Maven-WebAppDemo
 
+**Version 1.0**
 
 ## Demo 说明
 
@@ -59,3 +60,7 @@
 ## 参考资料 
 
 + [IDEA下使用maven构建web项目（SpringMVC+Mybatis整合）](https://www.cnblogs.com/helloyy/p/6826101.html)
+
+## 版本更新说明
+
++ v1.0 spring4 + mybatis3 + mysql + freemarker2
