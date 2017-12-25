@@ -169,6 +169,7 @@
     <load-on-startup>1</load-on-startup>
     <async-supported>true</async-supported>
   </servlet>
+
   <servlet-mapping>
     <!--这个Servlet的名字是dispatcher，可以有多个DispatcherServlet，是通过名字来区分的。每一个DispatcherServlet有自己的WebApplicationContext上下文对象。同时保存的ServletContext中和Request对象中.-->
     <!--ApplicationContext是Spring的核心，Context我们通常解释为上下文环境，我想用“容器”来表述它更容易理解一些，ApplicationContext则是“应用的容器”了，Spring把Bean放在这个容器中，在需要的时候，用getBean方法取出-->
@@ -177,6 +178,17 @@
     <!--1、拦截*.do、*.htm， 例如：/user/add.do,这是最传统的方式，最简单也最实用。不会导致静态文件（jpg,js,css）被拦截。-->
     <!--2、拦截/，例如：/user/add,可以实现现在很流行的REST风格。很多互联网类型的应用很喜欢这种风格的URL。弊端：会导致静态文件（jpg,js,css）被拦截后不能正常显示。 -->
     <url-pattern>/</url-pattern><!--会拦截URL中带“/”的请求。-->
+  </servlet-mapping>
+
+  <!-- 项目初始化，一般加载系统变量，初始化赋值，逻辑处理等 -->
+  <servlet>
+    <servlet-name>AppInit</servlet-name>
+    <servlet-class>com.demo.app.others.sys.AppInit</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AppInit</servlet-name>
+    <url-pattern>/init.do</url-pattern>
   </servlet-mapping>
 
 </web-app>
