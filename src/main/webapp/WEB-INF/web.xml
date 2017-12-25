@@ -15,16 +15,44 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
 
-  <!--当系统出现404错误，跳转到页面NoPage.html-->
+  <!--
+    404 错误页面
+    此处为静态资源，在 servlet 中我已经过滤了 html ，不会请求到服务端。
+    如果要使用 ftl 等模板引擎，需要对 springmvc 进行 nohandler 的处理，否则404页面为空。
+  -->
   <error-page>
     <error-code>404</error-code>
-    <location>/WEB-INF/views/NoPage.html</location>
+    <location>/WEB-INF/views/error/404.html?code=404</location>
+  </error-page>
+
+  <!-- 内部服务器错误 -->
+  <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/views/error/500.html</location>
+  </error-page>
+
+  <!-- 请求的 uri 太长 -->
+  <error-page>
+    <error-code>414</error-code>
+    <location>/WEB-INF/views/error/414.html</location>
+  </error-page>
+
+  <!-- HTTP 版本不受支持 -->
+  <error-page>
+    <error-code>505</error-code>
+    <location>/WEB-INF/views/error/505.html</location>
+  </error-page>
+
+  <!-- 请求无效 -->
+  <error-page>
+    <error-code>400</error-code>
+    <location>/WEB-INF/views/error/400.html</location>
   </error-page>
 
   <!--当系统出现java.lang.NullPointerException，跳转到页面error.html-->
   <error-page>
     <exception-type>java.lang.NullPointerException</exception-type>
-    <location>/WEB-INF/views/error.html</location>
+    <location>/WEB-INF/views/error/error.html</location>
   </error-page>
 
   <!--会话超时配置，单位分钟-->
@@ -76,8 +104,9 @@
   </context-param>
 
   <!--如果你的DispatcherServlet拦截"/"，为了实现REST风格，拦截了所有的请求，那么同时对*.js,*.jpg等静态文件的访问也就被拦截了。-->
-  <!--方案一：激活Tomcat的defaultServlet来处理静态文件-->
-  <!--要写在DispatcherServlet的前面，让defaultServlet先拦截请求，这样请求就不会进入Spring了-->
+  <!-- 方案一：激活Tomcat的defaultServlet来处理静态文件-->
+  <!-- 方案二：要写在DispatcherServlet的前面，让defaultServlet先拦截请求，这样请求就不会进入Spring了 -->
+  <!-- 方案三：当然，你也可以用 spring 拦截器完成这些 -->
   <servlet-mapping>
     <servlet-name>default</servlet-name>
     <url-pattern>*.css</url-pattern>
