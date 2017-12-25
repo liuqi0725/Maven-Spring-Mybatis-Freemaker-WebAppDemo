@@ -39,7 +39,7 @@
 4. 录入 groupId,artifactid,version , 点击“next”
 5. Maven home directory 选择你本机上的 maven 版本，或者使用 IDE 自带的 maven
   + IntelliJ IDEA 2017 自带 Maven 3.3.9
-6. Local repository 本地保存 Maven 下载包的路径，**个人建议为避免冲突，每个项目一个路径。**
+6. Local repository 本地保存 Maven 包的仓库路径，Maven 仓库搜索时先搜本地，再搜 Maven 的服务器仓库。**个人建议，如果需要做 demo，demo项目独立一个本地仓库，方便修改，与团队协同不冲突。其他项目共用一个本地仓库**
   + 由于maven骨架和一些jar需要去maven的仓库下载，所以创建项目的时候速度会非常慢（外国的服务器你懂得），因此我们可以直接访问[archetype-catalog.xml](http://repo1.maven.org/maven2/archetype-catalog.xml)，把这个xml下载下来放到本地的maven目录中（在Maven home directory中，你选择的 Maven 目录），然后在配置界面添加一个参数archetypeCatalog=internal就可以了（按“+”）。 点击“next”
 7. 配置 Project name 、 Project location 。 点击“finish”
 8. 等待服务器下载资源包即可
