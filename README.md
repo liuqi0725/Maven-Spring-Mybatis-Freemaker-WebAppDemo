@@ -1,6 +1,6 @@
 # Maven-WebAppDemo
 
-**Version 1.0**
+**Version 1.0.1**
 
 ## Demo 说明
 
@@ -63,4 +63,10 @@
 
 ## 版本更新说明
 
-+ v1.0 spring4 + mybatis3 + mysql + freemarker2
++ Version 1.0 
+    + spring4 + mybatis3 + mysql + freemarker2 初始化
+    
++ Version 1.0.1
+    + 添加 sqlite 支持
+    + 添加多个错误页面的支持
+    + 添加初始化servlet
