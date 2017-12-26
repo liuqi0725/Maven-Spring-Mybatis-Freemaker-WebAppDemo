@@ -18,5 +18,6 @@
     <!-- 加载SPRING 的上下文到JAVA后台 -->
     <bean class="com.demo.app.others.handler.SpringContextHandler"/>
 
-
+    <!-- 配置使Spring采用CGLIB代理 -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
 </beans>
