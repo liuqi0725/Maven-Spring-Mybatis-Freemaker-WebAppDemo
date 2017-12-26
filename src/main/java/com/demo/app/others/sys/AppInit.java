@@ -24,7 +24,7 @@ public class AppInit extends HttpServlet {
         ServletContext context = getServletContext();
 
         /*
-         * web.xml 配置
+         * 可以读取 web.xml 配置
          *  <context-param>
          *      <param-name>environment_name</param-name> <!-- 自定义key 值 -->
          *      <param-value>environment_value</param-value> <!-- 自定义value 值 -->

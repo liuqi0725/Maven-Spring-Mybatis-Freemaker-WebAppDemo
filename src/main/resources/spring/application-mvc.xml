@@ -89,10 +89,6 @@
     <bean id="overrideDirective" class="cn.org.rapid_framework.freemarker.directive.OverrideDirective"/>
     <bean id="superDirective" class="cn.org.rapid_framework.freemarker.directive.SuperDirective"/>
 
-
-    <!-- 加载SPRING 的上下文到JAVA后台 -->
-    <bean class="com.demo.app.others.handler.SpringContextHandler"/>
-
     <!-- 支持返回json，用来处理json格式转换，避免IE执行ajax时，返回json出现下载文件 -->
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <property name="messageConverters">

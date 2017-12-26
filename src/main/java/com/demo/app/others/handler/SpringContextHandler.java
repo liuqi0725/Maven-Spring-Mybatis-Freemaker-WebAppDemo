@@ -4,8 +4,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 
-public class SpringContextHandler {
+public class SpringContextHandler implements ApplicationContextAware {
+
 
     private Logger logger = LoggerFactory.getLogger(SpringContextHandler.class);
 
@@ -19,20 +21,12 @@ public class SpringContextHandler {
         return appContext;
     }
 
-    public static ApplicationContext getAppContext() {
-        return appContext;
-    }
-
     /**
-     * 此方法需要魏外层调用
+     * 此方法由 spring 注入时调用
      * @param applicationContext
      * @throws BeansException
      */
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        setAppContext(applicationContext);
-    }
-
-    private void setAppContext(ApplicationContext appContext) {
         logger.info("success setAppContext Of ApplicationContextLocal");
         SpringContextHandler.appContext = appContext;
     }
